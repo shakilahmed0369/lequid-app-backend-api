@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Shop;
+use App\Models\Flat;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
-class ShopController extends Controller
+class FlatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,11 @@ class ShopController extends Controller
      */
     public function index()
     {
-        //
+        return Flat::all();
+    }
+
+    public function getPaidList($id){
+        return Payment::where('type', 'flat')->where('flat_id', $id)->get();
     }
 
     /**
@@ -32,10 +37,10 @@ class ShopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Shop  $shop
+     * @param  \App\Models\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function show(Shop $shop)
+    public function show(Flat $flat)
     {
         //
     }
@@ -44,10 +49,10 @@ class ShopController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Shop  $shop
+     * @param  \App\Models\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shop $shop)
+    public function update(Request $request, Flat $flat)
     {
         //
     }
@@ -55,10 +60,10 @@ class ShopController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Shop  $shop
+     * @param  \App\Models\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shop $shop)
+    public function destroy(Flat $flat)
     {
         //
     }
